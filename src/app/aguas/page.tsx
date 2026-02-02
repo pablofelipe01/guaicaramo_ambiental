@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import UploadForm from "@/components/UploadForm";
 
 export default function Aguas() {
   return (
@@ -69,20 +70,12 @@ export default function Aguas() {
               </div>
             </div>
 
-            {/* Upload Area */}
-            <label className="flex flex-col items-center justify-center w-full h-48 border-2 border-dashed border-white/10 rounded-xl cursor-pointer hover:border-green-500/50 hover:bg-green-500/5 transition-all">
-              <svg className="w-12 h-12 text-gray-500 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-              </svg>
-              <span className="text-gray-400 mb-1">Arrastra tu archivo aquí o haz clic para seleccionar</span>
-              <span className="text-sm text-gray-600">Archivos permitidos: .xlsx, .xls, .csv</span>
-              <input type="file" className="hidden" accept=".xlsx,.xls,.csv" />
-            </label>
-
-            {/* Submit Button */}
-            <button className="w-full mt-6 bg-green-600 hover:bg-green-500 text-white py-3 rounded-xl font-medium transition-all duration-300 hover:shadow-lg hover:shadow-green-500/25">
-              Subir archivo
-            </button>
+            <UploadForm
+              area="aguas"
+              acceptedFiles=".xlsx,.xls,.csv"
+              acceptedFilesLabel="Archivos permitidos: .xlsx, .xls, .csv"
+              multiple={false}
+            />
           </div>
         </div>
       </main>

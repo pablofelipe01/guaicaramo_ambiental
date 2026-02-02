@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -13,9 +14,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Guaicaramo Ambiental | Soluciones Ambientales Sostenibles",
-  description: "Empresa líder en soluciones ambientales, comprometida con la preservación del medio ambiente y el desarrollo sostenible en Colombia.",
-  keywords: "ambiental, sostenibilidad, medio ambiente, Colombia, Meta, consultoría ambiental",
+  title: "Guaicaramo Ambiental | Sistema de Gestión de Información",
+  description: "Sistema de centralización y gestión de información ambiental para Guaicaramo.",
+  keywords: "ambiental, sostenibilidad, medio ambiente, Colombia, Meta, gestión ambiental",
 };
 
 export default function RootLayout({
@@ -28,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} antialiased`}
       >
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
